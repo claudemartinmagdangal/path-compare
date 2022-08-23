@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>util.java</groupId>
+	<artifactId>path-compare</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>path-compare</name>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.github.azagniotov/ant-style-path-matcher -->
+		<dependency>
+			<groupId>io.github.azagniotov</groupId>
+			<artifactId>ant-style-path-matcher</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.joniles/rtfparserkit -->
+		<dependency>
+			<groupId>com.github.joniles</groupId>
+			<artifactId>rtfparserkit</artifactId>
+			<version>1.16.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>path-compare</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>util.java.pathcompare.Main</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<configuration>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
